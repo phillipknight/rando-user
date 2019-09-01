@@ -7,3 +7,12 @@ export const loadAllPeople = async () => {
     people = result.results;
     return people
 };
+
+
+
+
+export const getPersonById = _id => {
+    return people.find(person => {
+      return person.id.value == _id;
+    });
+  };
