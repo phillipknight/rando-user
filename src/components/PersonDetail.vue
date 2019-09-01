@@ -5,7 +5,7 @@
         <ion-title>A Person Detail</ion-title>
       </ion-toolbar>
     </ion-header>
-     <ion-content padding>
+     <ion-content padding >
       <ion-card style="max-width: 300px">
         <img :src="user.picture.large" />
         <ion-card-content>
