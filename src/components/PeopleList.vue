@@ -1,22 +1,30 @@
+
 <template>
-  <div>
-    <h2>In Person List</h2>
-    <div v-if="people.length">
-      <div v-for="person in people" :key="person.id.value" @click="showPersonDetail(person)">
-        <router-link :to="'/detail/' + person.id.value">
-        <img :src="person.picture.medium" />
-        {{ person.name.first }} {{ person.name.last }}
-        </router-link>
-      </div>
-    </div>
-  </div>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>In Person List</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-item v-for="person in people" :key="person.id.value" @click="showPersonDetail(person)">
+          <ion-avatar slot="start">
+            <img :src="person.picture.medium" />
+          </ion-avatar>
+          <ion-label>
+            <h1>{{person.name.first}} {{person.name.last}}</h1>
+            <h2>{{person.email}}</h2>
+          </ion-label>
+        </ion-item>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script>
 import { loadAllPeople } from "../data-service";
 
 export default {
-  name: 'PeopleList',
+  name: "PeopleList",
   data() {
     return {
       people: []
@@ -30,17 +38,15 @@ export default {
   },
   methods: {
     showPersonDetail(_person) {
-      this.$router.push({ 
+      this.$router.push({
         name: "detail",
-        params: {userId: _person.id.value }
+        params: { userId: _person.id.value }
       });
     }
-  },
+  }
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
 </style>

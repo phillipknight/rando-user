@@ -1,5 +1,9 @@
 import Vue from 'vue';
+import Ionic from '@ionic/vue';
+import "@ionic/core/css/core.css";
+import "@ionic/core/css/ionic.bundle.css";
 
+Vue.use(Ionic);
 
 
 import VueRouter from "vue-router";
@@ -31,7 +35,6 @@ Vue.use(VueRouter);
 loadAllPeople().then(() => {
   new Vue({
     render: h => h(App),
-    router
-  }).$mount('#app')
+    router 
+  }).$mount("#app");
 });
-
