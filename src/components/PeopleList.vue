@@ -2,12 +2,12 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar color="greenish">
         <ion-title>In Person List</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-        <ion-item v-for="person in people" :key="person.id.value" @click="showPersonDetail(person)">
+    <ion-content >
+        <ion-item color="yellowish" v-for="person in people" :key="person.id.value" @click="showPersonDetail(person)">
           <ion-avatar slot="start">
             <img :src="person.picture.medium" />
           </ion-avatar>

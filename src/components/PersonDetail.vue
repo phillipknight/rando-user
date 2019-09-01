@@ -1,12 +1,12 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar color="greenish">
         <ion-title>A Person Detail</ion-title>
       </ion-toolbar>
     </ion-header>
-     <ion-content padding >
-      <ion-card style="max-width: 300px">
+     <ion-content padding color="yellowish" >
+      <ion-card color="greenish" style="max-width: 300px">
         <img :src="user.picture.large" />
         <ion-card-content>
             <h1>{{user.name.first}} {{user.name.last}}</h1>
@@ -14,7 +14,7 @@
             <h3>{{user.email}}</h3>
         </ion-card-content>
       </ion-card>
-      <ion-button @click="goBack">GO BACK</ion-button>
+      <ion-button color="greenish" @click="goBack">GO BACK</ion-button>
     </ion-content>
   </ion-page>
 </template>
