@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { loadAllPeople } from "../data-service";
+
 export default {
   name: 'PeopleList',
   data() {
@@ -18,16 +20,13 @@ export default {
       people: []
     };
   },
-  async mounted () {
-  fetch("https://randomuser.me/api/?results=10")
-    .then(response => {
-      return response.json();
-    })
-    .then(result => {
-      this.people = result.results;
+  mounted() {
+    // using dataService without dot notation
+    loadAllPeople().then(_people => {
+      this.people = _people;
     });
 }
-}
+};
 
 </script>
 
