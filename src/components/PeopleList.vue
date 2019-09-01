@@ -3,15 +3,17 @@
     <h2>In Person List</h2>
     <div v-if="people.length">
       <div v-for="person in people" :key="person.id.value" @click="showPersonDetail(person)">
+        <router-link :to="'/detail/' + person.id.value">
         <img :src="person.picture.medium" />
         {{ person.name.first }} {{ person.name.last }}
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { loadAllPeople, getPersonById } from "../data-service";
+import { loadAllPeople } from "../data-service";
 
 export default {
   name: 'PeopleList',
@@ -27,9 +29,11 @@ export default {
     });
   },
   methods: {
-    showPersonDetail: function(_person) {
-      let person = getPersonById(_person.id.value);
-      alert(person.name.first + " " + person.name.last);
+    showPersonDetail(_person) {
+      this.$router.push({ 
+        name: "detail",
+        params: {userId: _person.id.value }
+      });
     }
   },
 };
